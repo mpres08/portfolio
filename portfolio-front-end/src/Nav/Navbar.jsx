@@ -13,19 +13,24 @@ export default function Navbar() {
   };
 
   return (
-    <Box sx={{ width: '100%', typography: 'body1' }}>
-      <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab label="Creative" value="1" />
-            <Tab label="Development" value="2" />
-            <Tab label="About" value="3" />
-          </TabList>
-        </Box>
-        <TabPanel value="1">Item One</TabPanel>
-        <TabPanel value="2">Item Two</TabPanel>
-        <TabPanel value="3">Item Three</TabPanel>
-      </TabContext>
-    </Box>
+      <Box sx={{ width: '100vw', minHeight: '100vh', display: 'flex', flexDirection: 'column', typography: 'body1' }}>
+        <TabContext value={value}>
+          {/* Navbar Container */}
+          <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', borderBottom: 1, borderColor: 'divider', paddingY: 1 }}>
+            <TabList onChange={handleChange} aria-label="lab API tabs example">
+              <Tab label="Creative" value="1" />
+              <Tab label="Development" value="2" />
+              <Tab label="About" value="3" />
+            </TabList>
+          </Box>
+
+          {/* Page Content */}
+          <Box sx={{ flexGrow: 1, padding: 2 }}>
+            <TabPanel value="1">Item One</TabPanel>
+            <TabPanel value="2">Item Two</TabPanel>
+            <TabPanel value="3">Item Three</TabPanel>
+          </Box>
+        </TabContext>
+      </Box>
   );
 }
