@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "Galyon-Bold";
+    src: url('./fonts/Galyon-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Galyon-Bold-Italic";
+    src: url('./fonts/Galyon-Bold-Italic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Galyon-Book";
+    src: url('./fonts/Galyon-Book.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Galyon-Book-Italic";
+    src: url('./fonts/Galyon-Book-Italic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
+
+body {
+    font-family: "Galyon", sans-serif;
+}
+

@@ -1,14 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import { useState } from 'react'
 import Navbar from './Nav/Navbar'
 import './App.css'
+import Routers from "./Services/Routers.jsx";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
-      <Navbar />
+      <BrowserRouter>
+        <Navbar />
+        <div>
+          <Routers />
+        </div>
+      </BrowserRouter>
   )
 }
 
