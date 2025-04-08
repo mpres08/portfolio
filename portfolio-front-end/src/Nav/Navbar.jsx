@@ -3,21 +3,19 @@ import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
-import {useLocation, useNavigate} from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
   const pathToTab = {
-    '/': '1',
     '/creative': '2',
     '/development': '3',
     '/about': '4'
   }
 
   const tabToPath = {
-    '1': '/',
     '2': '/creative',
     '3': '/development',
     '4': '/about'
@@ -25,6 +23,10 @@ export default function Navbar() {
 
   const currentTab = pathToTab[location.pathname] || '1';
   const [value, setValue] = React.useState(currentTab);
+
+  React.useEffect(() => {
+    setValue(pathToTab[location.pathname] || false);
+  }, [location.pathname]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -39,7 +41,11 @@ export default function Navbar() {
 
           {/* Left-Aligned Title */}
           <Box sx={{ flex: 1 }}>
-            <h1 style={{ margin: 0, whiteSpace: 'nowrap' }}><a href={"/"}>Madison Preston</a></h1>
+            <h1 style={{ margin: 0, whiteSpace: 'nowrap' }}>
+              <Link to="/" style={{ textDecoration: 'none', color: 'inherit'}} >
+                Madison Preston
+              </Link>
+            </h1>
           </Box>
 
           {/* Centered Tabs */}
