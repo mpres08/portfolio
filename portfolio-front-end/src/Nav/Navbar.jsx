@@ -1,37 +1,18 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import {Link, useLocation, useNavigate} from "react-router-dom";
+import Tabs from '@mui/material/Tabs';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import {Link, useLocation} from "react-router-dom";
 
 export default function Navbar() {
-  const navigate = useNavigate();
   const location = useLocation();
 
-  const pathToTab = {
-    '/creative': '2',
-    '/development': '3',
-    '/about': '4'
-  }
-
-  const tabToPath = {
-    '2': '/creative',
-    '3': '/development',
-    '4': '/about'
-  }
-
-  const currentTab = pathToTab[location.pathname] || '1';
-  const [value, setValue] = React.useState(currentTab);
-
-  React.useEffect(() => {
-    setValue(pathToTab[location.pathname] || false);
-  }, [location.pathname]);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-    navigate(tabToPath[newValue]);
-  };
+  const currentTab = {
+    '/creative': 'creative',
+    '/development': 'development',
+    '/about': 'about',
+  }[location.pathname] ?? false;
 
   return (
       <Box sx={{ width: '100vw', minHeight: '100vh', display: 'flex', flexDirection: 'column', typography: 'body1' }}>
@@ -50,28 +31,17 @@ export default function Navbar() {
 
           {/* Centered Tabs */}
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <TabContext value={value}>
-              <TabList onChange={handleChange} aria-label="Navigation tabs">
-                <Tab label="Creative" value="2" />
-                <Tab label="Development" value="3" />
-                <Tab label="About" value="4" />
-              </TabList>
-            </TabContext>
+            <Tabs value={currentTab} aria-label="Navigation tabs">
+              <Tab label="Creative" value="creative" component={Link} to="/creative" />
+              <Tab label="Development" value="development" component={Link} to="/development" />
+              <Tab label="About" value="about" component={Link} to="/about"/>
+            </Tabs>
           </Box>
 
           {/* Empty Box for Space Balance */}
           <Box sx={{ flex: 1 }} />
-
+          <LinkedInIcon />
         </Box>
-
-        {/* Page Content */}
-        {/*<Box sx={{ flexGrow: 1, padding: 2 }}>*/}
-        {/*  <TabContext value={value}>*/}
-        {/*    <TabPanel value="1">Item One</TabPanel>*/}
-        {/*    <TabPanel value="2">Item Two</TabPanel>*/}
-        {/*    <TabPanel value="3">Item Three</TabPanel>*/}
-        {/*  </TabContext>*/}
-        {/*</Box>*/}
       </Box>
   );
 }

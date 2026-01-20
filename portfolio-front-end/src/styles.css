@@ -1,29 +1,33 @@
 @font-face {
-    font-family: "Galyon-Bold";
-    src: url('./fonts/Galyon-Bold.ttf');
-    font-weight: bold;
+    font-family: "Galyon";
+    src: url('/fonts/Galyon-Bold.otf') format("opentype");
+    font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: "Galyon-Bold-Italic";
-    src: url('./fonts/Galyon-Bold-Italic.ttf');
-    font-weight: bold;
+    font-family: "Galyon";
+    src: url('/fonts/Galyon-Bold-Italic.otf') format("opentype");
+    font-weight: 400;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: "Galyon-Book";
-    src: url('./fonts/Galyon-Book.ttf');
-    font-weight: bold;
+    font-family: "Galyon";
+    src: url('/fonts/Galyon-Book.otf') format("opentype");
+    font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: "Galyon-Book-Italic";
-    src: url('./fonts/Galyon-Book-Italic.ttf');
-    font-weight: bold;
+    font-family: "Galyon";
+    src: url('/fonts/Galyon-Book-Italic.otf') format("opentype");
+    font-weight: 700;
     font-style: italic;
+    font-display: swap;
 }
 
 body {
