@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
@@ -15,23 +16,33 @@ export default function Navbar() {
   }[location.pathname] ?? false;
 
   return (
-      <Box sx={{ width: '100vw', minHeight: '100vh', display: 'flex', flexDirection: 'column', typography: 'body1' }}>
+      <Box sx={{display: 'flex', flexDirection: 'column', typography: 'body1' }}>
 
         {/* Navbar */}
         <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', paddingY: 2, paddingX: 4, position: 'relative' }}>
 
           {/* Left-Aligned Title */}
           <Box sx={{ flex: 1 }}>
-            <h1 style={{ margin: 0, whiteSpace: 'nowrap' }}>
-              <Link to="/" style={{ textDecoration: 'none', color: 'inherit'}} >
-                Madison Preston
-              </Link>
-            </h1>
+            <Typography
+              variant="h4"
+              component={Link}
+              to="/"
+              sx={{
+                textDecoration: 'none',
+                color: 'primary.main',
+              }}
+            >
+              Madison Preston
+            </Typography>
           </Box>
 
           {/* Centered Tabs */}
           <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-            <Tabs value={currentTab} aria-label="Navigation tabs">
+            <Tabs
+                value={currentTab}
+                textColor="primary"
+                indicatorColor="primary"
+            >
               <Tab label="Creative" value="creative" component={Link} to="/creative" />
               <Tab label="Development" value="development" component={Link} to="/development" />
               <Tab label="About" value="about" component={Link} to="/about"/>

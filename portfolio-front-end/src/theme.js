@@ -1,17 +1,17 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
-    // palette: {
-    //     primary: {
-    //         main:
-    //     },
-    //     secondary: {
-    //         main:
-    //     },
-    //     background: {
-    //         default: "#A0AF72"
-    //     }
-    // },
+    palette: {
+        primary: {
+            main: "#E9633E"
+        },
+        secondary: {
+            main: "#537987"
+        },
+        background: {
+            default: "#E3A58A"
+        }
+    },
     typography: {
         fontFamily: "'Galyon', sans-serif"
     },
